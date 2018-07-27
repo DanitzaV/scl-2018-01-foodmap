@@ -1,3 +1,10 @@
+function splash(){
+    setTimeout( () => {
+      location = 'index.html';
+    },2000)
+}
+
+
 mostrarLugares()
 
 
@@ -12,7 +19,7 @@ function obtenerFood(dato) {
     let col12 = document.createElement('div')
     col12.classList = 'col-12 col-sm-6 col-md-3 text-center justify-content-center';
     let card = document.createElement('div');
-    card.classList= 'card ';
+    card.classList= 'card justify-content-center';
     card.id = 'card'
     card.setAttribute('data-toggle','modal');
     card.setAttribute('data-target','#exampleModal');
