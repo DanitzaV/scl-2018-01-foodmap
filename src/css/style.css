@@ -13,3 +13,14 @@ html, body {
 .inputYbutton{
     margin-top: 2em;
 }
+.card{
+    height: 5rem;
+    background-color: #ed1467ab;
+    
+}
+.nombre{
+   margin-top:  1.5em;
+}
+#titulo{
+    background-color: #f1067cce;
+}

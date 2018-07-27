@@ -4,6 +4,7 @@ window.onload = () => {
  
  let map;
        let infoWindow;
+       let resultados;
       function initMap() {
         // con HTML5 geolocation.
         if (navigator.geolocation) {
@@ -32,9 +33,9 @@ window.onload = () => {
             var request = {
      location: myLatlng,
      radius: 3000,
-     types: ['restaurant']
+     types: ['restaurant','food','Comida','Restaurante']
    };
-
+//codigo  de ayuda https://reviblog.net/2016/01/08/api-javascript-de-google-maps-buscar-lugares-cercanos/
    // Creamos el servicio PlaceService y enviamos la petición.
    var service = new google.maps.places.PlacesService(map);
 
@@ -45,6 +46,8 @@ window.onload = () => {
            // pasamos a resultados al la funciones que se encargara de crear los marcadores 
            // para cada restaurante en el radio de su ubicacion
          crearMarcador(results[i]);
+        //  mostrarLugares(results[i]);
+         obtenerFood(results[i])
        }
      }
    });
@@ -62,7 +65,12 @@ window.onload = () => {
    // Creamos un marcador
    var marker = new google.maps.Marker({
      map: map,
-     position: place.geometry.location
+     position: place.geometry.location,
+     icon: {
+      url: 'https://developers.google.com/maps/documentation/javascript/images/circle.png',
+      anchor: new google.maps.Point(10, 10),
+      scaledSize: new google.maps.Size(10, 17)
+    }
    });
 
  // Asignamos  evento click del marcador
@@ -70,7 +78,7 @@ window.onload = () => {
      infoWindow.setContent(place.name);
      infoWindow.open(map, this);
    });
-   mostrarLugares(place);
+  
    }
 
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
