@@ -15,12 +15,16 @@ html, body {
 }
 .card{
     height: 5rem;
-    background-color: #ed1467ab;
+    margin-bottom: 0.5em;
+    background-color: #e7dbe3ce;
+    color: #ed1467ab;
     
 }
 .nombre{
    margin-top:  1.5em;
+   font-weight: bold;
 }
 #titulo{
-    background-color: #f1067cce;
+    background-color: #ed1467ab;
+    
 }
