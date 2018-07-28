@@ -6,7 +6,7 @@ function splash(){
 
 
 mostrarLugares()
-
+// obtenerFood()
 
 let inputsearch;
 let container;
@@ -34,12 +34,20 @@ function obtenerFood(dato) {
   
 
 //    document.getElementById('exampleModalLabel').appendChild(titulomodal);
-   let contenedormodal = document.getElementById('modal');
+  
+//   let valor = Object.values(juntarDatos);
+let valores = [];
+for (let value of juntarDatos.name) {
+  valores+= value;
+}
+console.log(valores)
+ 
+    let contenedormodal = document.getElementById('mo');
    contenedormodal.innerHTML+= `<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
      <div class="modal-content">
        <div class="modal-header">
-         <h5 class="modal-title" id="exampleModalLabel">${juntarDatos.name}</h5>
+         <h5 class="modal-title" id="exampleModalLabel">${valores}</h5
          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
            <span aria-hidden="true">&times;</span>
          </button>
@@ -50,11 +58,37 @@ function obtenerFood(dato) {
      </div>
    </div>
  </div>`
+ 
+  
      
      inputsearch =  document.getElementById('searchfood').value;
      
      document.getElementById('card').addEventListener('click', function () {
-         
+        
+        let contdivmodal = document.createElement('div');
+        contdivmodal.classList = 'modal fade';
+        contdivmodal.setAttribute('tabindex','-1');
+        contdivmodal.setAttribute('role','dialog');
+        contdivmodal.setAttribute('aria-labelledby','exampleModalLabel');
+        contdivmodal.setAttribute('aria-hidden','true');
+        let modaldialog =  document.createElement('div');
+        modaldialog.className= 'modal-dialog';
+        modaldialog.setAttribute('role','document');
+        let modalContent = document.createElement('div')
+        modalContent.classList = 'modal-content';
+        let modalheader = document.createElement('div');
+        modalheader.className = 'modal-header';
+        let h5 = document.createElement('h5');
+        h5.classList = 'modal-title';
+        h5.id = 'exampleModalLabel';
+        let parrafoh5 =  document.createTextNode(juntarDatos.name);
+        h5.appendChild(parrafoh5);
+        modalheader.appendChild(h5);
+        modalContent.appendChild(modalheader);
+        modaldialog.appendChild(modalContent);
+        contdivmodal.appendChild(modaldialog);
+        document.getElementById('mo').innerHTML = contdivmodal;
+        // contenedormodal.appendChild(contdivmodal);
      })
  
  // function searchFood(food){
